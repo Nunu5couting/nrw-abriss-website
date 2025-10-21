@@ -1,0 +1,37 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "functions": {
+    "src/app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "@nrwabriss_supabase_url",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@nrwabriss_supabase_anon_key",
+    "SUPABASE_SERVICE_ROLE_KEY": "@nrwabriss_supabase_service_role_key",
+    "NEXT_PUBLIC_SITE_URL": "@nrwabriss_site_url",
+    "NEXT_PUBLIC_SITE_NAME": "@nrwabriss_site_name"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
+}
